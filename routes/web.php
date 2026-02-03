@@ -16,10 +16,47 @@ Route::get('/about', [PizzaController::class, 'aboutPage'])->name('about');
 
 
 
-    
-// Dashboard Route
+
+// Admin Dashboard Routes
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    // Dashboard
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    })->name('dashboard');
+
+    // Pizzas Management
+    Route::get('/pizzas', function () {
+        return view('admin.pizzas.index');
+    })->name('pizzas.index');
+
+    Route::get('/pizzas/create', function () {
+        return view('admin.pizzas.create');
+    })->name('pizzas.create');
+
+    // Orders Management
+    Route::get('/orders', function () {
+        return view('admin.orders.index');
+    })->name('orders.index');
+
+    // Customers Management
+    Route::get('/customers', function () {
+        return view('admin.customers.index');
+    })->name('customers.index');
+
+    // Analytics
+    Route::get('/analytics', function () {
+        return view('admin.analytics');
+    })->name('analytics');
+
+    // Settings
+    Route::get('/settings', function () {
+        return view('admin.settings');
+    })->name('settings');
+});
+
+// Legacy Dashboard Route (redirect to admin)
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
