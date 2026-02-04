@@ -29,7 +29,7 @@
             </div>
             @endif
 
-            <form method="POST" action="{{ route('login') }}">
+            <form method="POST" action="{{ route('admin.login') }}">
                 @csrf
 
                 <!-- Email Address -->
@@ -62,8 +62,8 @@
                         <span class="ml-2 text-sm text-gray-600">Remember me</span>
                     </label>
 
-                    @if (Route::has('password.request'))
-                    <a href="{{ route('password.request') }}" class="text-sm text-orange-600 hover:text-orange-700 font-semibold">
+                    @if (Route::has('admin.password.request'))
+                    <a href="{{ route('admin.password.request') }}" class="text-sm text-orange-600 hover:text-orange-700 font-semibold">
                         Forgot Password?
                     </a>
                     @endif
@@ -78,7 +78,7 @@
                 <div class="mt-6 text-center">
                     <p class="text-gray-600">
                         Don't have an account?
-                        <a href="{{ route('register') }}" class="text-orange-600 hover:text-orange-700 font-semibold">
+                        <a href="{{ route('admin.register') }}" class="text-orange-600 hover:text-orange-700 font-semibold">
                             Sign up
                         </a>
                     </p>

@@ -32,10 +32,10 @@
                     Dashboard
                 </a>
                 @else
-                <a href="{{ route('login') }}" class="px-4 py-2 text-orange-600 border border-orange-600 rounded-lg hover:bg-orange-50 transition">
+                <a href="{{ route('admin.login') }}" class="px-4 py-2 text-orange-600 border border-orange-600 rounded-lg hover:bg-orange-50 transition">
                     Login
                 </a>
-                <a href="{{ route('register') }}" class="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
+                <a href="{{ route('admin.register') }}" class="px-4 py-2 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition">
                     Sign Up
                 </a>
                 @endauth
@@ -61,8 +61,8 @@
                 @auth
                 <a href="{{ route('dashboard') }}" class="text-gray-700 hover:text-orange-600 transition">Dashboard</a>
                 @else
-                <a href="{{ route('login') }}" class="text-orange-600 hover:text-orange-700 transition">Login</a>
-                <a href="{{ route('register') }}" class="text-orange-600 hover:text-orange-700 transition">Sign Up</a>
+                <a href="{{ route('admin.login') }}" class="text-orange-600 hover:text-orange-700 transition">Login</a>
+                <a href="{{ route('admin.register') }}" class="text-orange-600 hover:text-orange-700 transition">Sign Up</a>
                 @endauth
             </div>
         </div>

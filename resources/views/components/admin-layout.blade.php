@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Admin Dashboard') - Pizza Max</title>
+    <title>{{ $title ?? 'Admin Dashboard' }} - Pizza Max</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
@@ -65,8 +65,8 @@
             <header class="bg-white shadow-sm z-10">
                 <div class="flex items-center justify-between px-6 py-4">
                     <div>
-                        <h1 class="text-2xl font-bold text-gray-800">@yield('page-title', 'Dashboard')</h1>
-                        <p class="text-sm text-gray-500">@yield('page-subtitle', 'Welcome to admin panel')</p>
+                        <h1 class="text-2xl font-bold text-gray-800">{{ $pageTitle ?? 'Dashboard' }}</h1>
+                        <p class="text-sm text-gray-500">{{ $pageSubtitle ?? 'Welcome to admin panel' }}</p>
                     </div>
 
                     <div class="flex items-center space-x-4">
@@ -87,7 +87,7 @@
             <!-- Main Content -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100">
                 <div class="container mx-auto px-6 py-8">
-                    @yield('content')
+                    {{ $slot }}
                 </div>
             </main>
         </div>
